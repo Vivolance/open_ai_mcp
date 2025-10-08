@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "open-ai-mcp"
+version = "0.1.0"
+description = ""
+authors = ["Elson <elsonccj@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mypy = "^1.18.1"
+black = "^25.1.0"
+ruff = "^0.13.0"
+openai = "^1.107.2"
+fastapi = "^0.116.1"
+dotenv = "^0.9.9"
+logging = "^0.4.9.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
