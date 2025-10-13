@@ -24,7 +24,7 @@ tools = [
                     "a": {"type": "number", "description": "First number"},
                     "b": {"type": "number", "description": "Second number"},
                 },
-                "required": ["a", "b"]
+                "required": ["a", "b"],
             },
         },
     }
@@ -33,8 +33,11 @@ tools = [
 
 # Instruct model to use the tool
 messages = [
-    {"role": "system", "content": "You are a helpful assistant that can use functions."},
-    {"role": "user", "content": "Add 15.5 and 20.3"}
+    {
+        "role": "system",
+        "content": "You are a helpful assistant that can use functions.",
+    },
+    {"role": "user", "content": "Add 15.5 and 20.3"},
 ]
 
 response = client.chat.completions.create(
@@ -61,11 +64,13 @@ if message.tool_calls:
 
     # Send the result back to the model
     messages.append(message)  # include the model's tool call
-    messages.append({
-        "role": "tool",
-        "tool_call_id": tool_call.id,
-        "content": str(result),
-    })
+    messages.append(
+        {
+            "role": "tool",
+            "tool_call_id": tool_call.id,
+            "content": str(result),
+        }
+    )
 
     followup = client.chat.completions.create(
         model="meta-llama-3-8b-instruct",
@@ -76,4 +81,3 @@ if message.tool_calls:
 
 else:
     print("No tool call detected.")
-
