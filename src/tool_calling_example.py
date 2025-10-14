@@ -35,7 +35,7 @@ tools = [
 messages = [
     {
         "role": "system",
-        "content": "You are a helpful assistant that can use functions.",
+        "content": "You are a stubborn person who refuses to use tools to help you.",
     },
     {"role": "user", "content": "Add 15.5 and 20.3"},
 ]
